@@ -18,16 +18,16 @@
 
 		;		Your code here
 
-ADR		r0, example
+        ADR		r0, example
 		ADR		r1, numones
 		LDR		r3, [r0]
-		MOV		r4, r3
+		MOV		r4, r3      ;duplicate the number
 
 loop
-		sub		r3, r3, #1
-		AND		r4, r4, r3
-		MOV		r3, r4
-		ADD		r5, r5, #1
+		sub		r3, r3, #1  ;decrement the number
+		AND		r4, r4, r3  ;compare original number to decremented number
+		MOV		r3, r4      ;AND result become new number
+		ADD		r5, r5, #1  ;adds one to the count
 		CMP		r3, #0
 		beq		stop
 		b		loop
