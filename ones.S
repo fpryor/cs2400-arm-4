@@ -18,6 +18,33 @@
 
 		;		Your code here
 
+ADR		r0, example
+		ADR		r1, numones
+		LDR		r3, [r0]
+		MOV		r4, r3
+
+loop
+		sub		r3, r3, #1
+		AND		r4, r4, r3
+		MOV		r3, r4
+		ADD		r5, r5, #1
+		CMP		r3, #0
+		beq		stop
+		b		loop
+
+stop
+		STR		r5, [r1]
+		end
+
+
+
+
+
+
+
+
+
 example	DCD		0x0010070f
-numones FILL    4
+numones	FILL		4
+
 
